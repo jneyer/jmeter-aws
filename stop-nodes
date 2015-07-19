@@ -2,7 +2,12 @@
 source testenv.sh
 nodes=`cat remotes | awk '{print $1}'`
 
-killall ssh
+pids=`cat .ssh_worker_pids | awk '{print $1}'`
+for pid in $pids
+do
+  kill $pid
+done
+rm -rf .ssh_worker_pids
 
 for node in $nodes
 do
