@@ -1,0 +1,25 @@
+#!/bin/bash
+source testenv.sh
+#Get the test host
+test_host=$1
+
+if [ "$test_host" = "" ] ; then
+ echo "Please specify a host name"
+ exit 0
+fi
+
+test_ip=`cat $TEST_HOME/remotes | grep $test_host$ | awk '{print $1}'`
+echo "connecting to $test_ip"
+echo
+
+scp -i $TEST_HOME/certs/$JMETER_CERT jmeter.properties $TEST_USER@$test_ip:/home/$TEST_USER
+
+ssh -i $TEST_HOME/certs/$JMETER_CERT -R 7000:127.0.0.1:7000 $TEST_USER@$test_ip <<EOF
+#ssh -R 7000:127.0.0.1:7000 USER@SERVER.NAME.COM <<EOF
+#cd apache-jmeter-2.13/bin/
+echo "setting JVM_ARGS=$SERVER_JVM_ARGS"
+export JVM_ARGS="$SERVER_JVM_ARGS"
+touch jmeter-server.log
+./apache-jmeter-2.13/bin/jmeter-server -Djava.rmi.server.hostname=$test_ip -p jmeter.properties  & tail -f jmeter-server.log
+EOF
+

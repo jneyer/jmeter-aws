@@ -1,0 +1,4 @@
+#!/bin/bash
+source testenv.sh
+#(cd ~/apache-jmeter-2.13/bin; ./jmeter -Djava.rmi.server.hostname=localhost)
+($JMETER_HOME/bin/jmeter -Djava.rmi.server.hostname=localhost -p $TEST_HOME/jmeter.properties -t $TEST_HOME/$JMETER_SCRIPT)

@@ -1,0 +1,21 @@
+#!/bin/bash
+source testenv.sh
+nodes=`cat remotes | awk '{print $1}'`
+
+echo "Starting worker nodes and tunnels."
+
+$TEST_HOME/start-tunnels
+
+for node in $nodes
+do
+
+ launch_command="export JVM_ARGS='$SERVER_JVM_ARGS';touch jmeter-server.log;./apache-jmeter-2.13/bin/jmeter-server -Djava.rmi.server.hostname=$node -p jmeter.properties &> jmeter-server-launch.log &"
+
+ #echo "Starting $node"
+ scp -q -i $TEST_HOME/certs/$JMETER_CERT jmeter.properties product-list.csv $TEST_USER@$node:/home/$TEST_USER
+ ssh -i $TEST_HOME/certs/$JMETER_CERT $TEST_USER@$node $launch_command
+
+done
+
+echo
+echo "Worker nodes started."

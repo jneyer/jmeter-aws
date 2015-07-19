@@ -1,0 +1,18 @@
+#!/bin/bash
+source testenv.sh
+nodes=`cat remotes | awk '{print $2}'`
+
+for node in $nodes
+do
+ $TEST_HOME/connect $node <<EOF
+ echo "Downloading apache-jmeter-2.13.tgz"
+ wget -q http://www.trieuvan.com/apache//jmeter/binaries/apache-jmeter-2.13.tgz
+ echo "Updating apt repository"
+ sudo apt-get update -y -qq
+ echo "Installing java"
+ sudo apt-get install openjdk-7-jdk -y -qq
+ echo "Extracting jmeter package"
+ tar zxf apache-jmeter-2.13.tgz
+ rm apache-jmeter-2.13.tgz
+EOF
+done

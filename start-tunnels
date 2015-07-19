@@ -1,0 +1,9 @@
+#!/bin/bash
+source testenv.sh
+nodes=`cat remotes | awk '{print $1}'`
+
+for node in $nodes
+do
+ ssh -i $TEST_HOME/certs/$JMETER_CERT -R 7000:127.0.0.1:7000 -fN $TEST_USER@$node &
+done
+

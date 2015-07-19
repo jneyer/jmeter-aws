@@ -1,0 +1,35 @@
+#!/bin/bash
+source testenv.sh
+#Get the test host
+opt1=$1
+remote_command=""
+
+OPTIND=1
+while getopts "h?:" opt; do
+	case "$opt" in
+		h|\?)
+		echo "Usage: connect <hostname> [command]"
+		exit 0
+		;;
+    esac
+done
+
+test_host=$opt1
+remote_command=$@
+
+if [ "$test_host" = "" ] ; then
+ echo "Please specify a host name"
+ echo "Usage: connect <hostname> [command]"
+ exit 0
+fi
+
+test_ip=`cat $TEST_HOME/remotes | grep $test_host$ | awk '{print $1}'`
+echo "connecting to $test_host $test_ip"
+echo
+
+if [ "$remote_command" = "$test_host" ] ; then
+ ssh -q -i $TEST_HOME/certs/$JMETER_CERT $TEST_USER@$test_ip
+else
+ ssh -q -n -i $TEST_HOME/certs/$JMETER_CERT $TEST_USER@$remote_command
+fi
+ 
