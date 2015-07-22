@@ -1,7 +1,16 @@
-# To Set up the JMeter test environment
+# Distributed JMeter test environment
 
-(TEST_HOME is this checkout directory)
+## Quick Start (to connect to existing JMeter workers):
 
+- Check out this repository.
+- Run ./setup-local to download and extract meter.
+- Copy your AWS private key to the certs directory. This is the key you use to log in to the AWS instances.
+- To verify you can connect to a jmeter node run ./connect jmeter1 to open an ssh connection. Exit.
+- Run ./stop-nodes to stop any running jmeter nodes.
+- Run ./start-nodes to open the SSH tunnels and start the nodes for your test.
+- Run ./start-gui to launch the jmeter project.
+
+##Instructions
 1. Run ./setup-local from this directory
 This script downloads JMeter 2.13 and unpacks it in the test directory.
 
