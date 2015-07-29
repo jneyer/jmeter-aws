@@ -1,4 +1,3 @@
 #!/bin/bash
 source testenv.sh
-#(cd ~/apache-jmeter-2.13/bin; ./jmeter -Djava.rmi.server.hostname=localhost)
 ($JMETER_HOME/bin/jmeter -p $TEST_HOME/jmeter.properties -Djava.rmi.server.hostname=localhost -n -t $TEST_HOME/$JMETER_SCRIPT -R $TEST_REMOTE)

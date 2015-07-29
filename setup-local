@@ -1,6 +1,6 @@
 #!/bin/bash
 source testenv.sh
 
-curl -O http://www.trieuvan.com/apache//jmeter/binaries/apache-jmeter-2.13.tgz
-tar zxvf apache-jmeter-2.13.tgz
-rm apache-jmeter-2.13.tgz
+curl -O http://www.trieuvan.com/apache//jmeter/binaries/"$JMETER_VERSION".tgz
+tar zxvf "$JMETER_VERSION".tgz
+rm "$JMETER_VERSION".tgz

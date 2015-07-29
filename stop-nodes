@@ -11,7 +11,7 @@ rm -rf .ssh_worker_pids
 
 for node in $nodes
 do
- ssh -q -n -i $TEST_HOME/certs/$JMETER_CERT $TEST_USER@$node killall java
+ ssh -q -n $ID_OPT $TEST_USER@$node killall java
 done
 echo
 echo "Worker nodes stopped."

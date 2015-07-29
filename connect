@@ -28,8 +28,8 @@ echo "connecting to $test_host $test_ip"
 echo
 
 if [ "$remote_command" = "$test_host" ] ; then
- ssh -q -i $TEST_HOME/certs/$JMETER_CERT $TEST_USER@$test_ip
+ ssh -q $ID_OPT $TEST_USER@$test_ip
 else
- ssh -q -n -i $TEST_HOME/certs/$JMETER_CERT $TEST_USER@$remote_command
+ ssh -q -n $ID_OPT $TEST_USER@$remote_command
 fi
  

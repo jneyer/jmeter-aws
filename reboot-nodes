@@ -4,7 +4,7 @@ nodes=`cat remotes | awk '{print $1}'`
 
 for node in $nodes
 do
- ssh -i $TEST_HOME/certs/$JMETER_CERT $TEST_USER@$node 'sudo /sbin/reboot now'
+ ssh $ID_OPT $TEST_USER@$node 'sudo /sbin/reboot now'
 done
 
 echo
