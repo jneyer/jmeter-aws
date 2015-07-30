@@ -8,12 +8,20 @@ if [ "$TESTENV" = "" ]; then
 fi
 
 export TEST_REMOTE=127.0.0.1
-
-# Update cert name, test user, and jmeter filename.
 export SERVER_JVM_ARGS="-Xmx4096m -Xms2048m"
+
+# Filename of AWS SSH certificate for worker nodes in certs directory
+# If JMETER_CERT is blank, keys added by ssh-add will be used.
 export JMETER_CERT=
+
+# SSH user ID for worker nodes
 export TEST_USER=ubuntu
+
+# Filename of JMeter test script
 export JMETER_SCRIPT=jmeter-sample.jmx
+
+# Files to copy to worker nodes for test
+export TEST_FILES="jmeter.properties blob product-list.csv"
 
 ID_OPT=""
 if [ "$JMETER_CERT" !=  "" ] ; then

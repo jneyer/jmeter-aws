@@ -17,5 +17,6 @@ cat jmeter.properties | sed -e "s|^remote_hosts=.*$|remote_hosts=$list|" > jmete
 cat testenv.sh | sed -e "s|^export TEST_REMOTE=.*$|export TEST_REMOTE=$list|" > testenv.sh.new
 mv jmeter.properties.new jmeter.properties
 mv testenv.sh.new testenv.sh
+rm jmeter.properties.bak
 
 source testenv.sh 

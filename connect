@@ -25,11 +25,12 @@ fi
 
 test_ip=`cat $TEST_HOME/remotes | grep $test_host$ | awk '{print $1}'`
 echo "connecting to $test_host $test_ip"
-echo
+
+command=`echo $remote_command | awk '{$1=""; sub(" ", ""); print}'`
 
 if [ "$remote_command" = "$test_host" ] ; then
  ssh -q $ID_OPT $TEST_USER@$test_ip
 else
- ssh -q -n $ID_OPT $TEST_USER@$remote_command
+ ssh $ID_OPT $TEST_USER@$test_ip $command
 fi
  

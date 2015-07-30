@@ -12,7 +12,7 @@ test_ip=`cat $TEST_HOME/remotes | grep $test_host$ | awk '{print $1}'`
 echo "connecting to $test_ip"
 echo
 
-scp $ID_OPT jmeter.properties $TEST_USER@$test_ip:/home/$TEST_USER
+scp $ID_OPT $TEST_FILES $TEST_USER@$test_ip:/home/$TEST_USER
 
 ssh $ID_OPT -R 7000:127.0.0.1:7000 $TEST_USER@$test_ip <<EOF
 echo "setting JVM_ARGS=$SERVER_JVM_ARGS"
