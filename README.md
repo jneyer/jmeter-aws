@@ -8,10 +8,10 @@
 - Update config/remotes with your AWS worker node public ip addresses. Format is <ip address> <alias>. I normally use aliases jmeter1, jmeter2, etc.
 - Modify any local settings in config/settings.
 - Run ./update-properties to sync up the config files with remotes. 
-- To verify you can connect to a jmeter node run ./connect jmeter1 to open an ssh connection. Then exit.
-- Run ./stop-nodes to stop any running jmeter nodes.
+- To verify you can connect to a JMeter node run ./connect jmeter1 to open an ssh connection. Then exit.
+- Run ./stop-nodes to stop any running JMeter nodes.
 - Run ./start-nodes to open the SSH tunnels and start the nodes for your test.
-- Run ./start-gui to launch the jmeter project.
+- Run ./start-gui to launch the default JMeter project.
 
 ##Instructions
 1. Run ./setup-local from this directory
