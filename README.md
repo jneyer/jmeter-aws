@@ -3,9 +3,12 @@
 ## Quick Start (to connect to existing JMeter workers):
 
 - Check out this repository.
-- Run ./setup-local to download and extract meter.
-- Copy your AWS private key to the certs directory. This is the key you use to log in to the AWS instances.
-- To verify you can connect to a jmeter node run ./connect jmeter1 to open an ssh connection. Exit.
+- Run ./setup-local to download and extract JMeter.
+- Copy your AWS private key to the certs directory or use ssh-add to add your key to the agent. This is the key you use to log in to the AWS instances.
+- Update config/remotes with your AWS worker node public ip addresses. Format is <ip address> <alias>. I normally use aliases jmeter1, jmeter2, etc.
+- Modify any local settings in config/settings.
+- Run ./update-properties to sync up the config files with remotes. 
+- To verify you can connect to a jmeter node run ./connect jmeter1 to open an ssh connection. Then exit.
 - Run ./stop-nodes to stop any running jmeter nodes.
 - Run ./start-nodes to open the SSH tunnels and start the nodes for your test.
 - Run ./start-gui to launch the jmeter project.
