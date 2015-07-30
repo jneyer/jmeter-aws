@@ -1,6 +1,7 @@
 #!/bin/bash
-source testenv.sh
-addresses=`cat remotes | awk '{print $1}'`
+source setup.sh
+
+addresses=`cat $CONFIG_PATH/remotes | awk '{print $1}'`
 list=""
 
 for address in $addresses
@@ -12,11 +13,12 @@ do
  fi
 done
 
-cp jmeter.properties jmeter.properties.bak
-cat jmeter.properties | sed -e "s|^remote_hosts=.*$|remote_hosts=$list|" > jmeter.properties.new
-cat testenv.sh | sed -e "s|^export TEST_REMOTE=.*$|export TEST_REMOTE=$list|" > testenv.sh.new
-mv jmeter.properties.new jmeter.properties
-mv testenv.sh.new testenv.sh
-rm jmeter.properties.bak
+(cd $CONFIG_PATH; \
+cp jmeter.properties jmeter.properties.bak; \
+cat jmeter.properties | sed -e "s|^remote_hosts=.*$|remote_hosts=$list|" > jmeter.properties.new; \
+cat settings | sed -e "s|^export TEST_REMOTE=.*$|export TEST_REMOTE=$list|" > settings.new; \
+mv jmeter.properties.new jmeter.properties; \
+mv settings.new settings; \
+rm jmeter.properties.bak;)
 
-source testenv.sh 
+source setup.sh 

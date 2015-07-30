@@ -1,6 +1,6 @@
 #!/bin/bash
-source testenv.sh
-nodes=`cat remotes | awk '{print $1}'`
+source setup.sh
+nodes=`cat $CONFIG_PATH/remotes | awk '{print $1}'`
 
 echo "Starting worker nodes and tunnels."
 
@@ -9,7 +9,7 @@ $TEST_HOME/start-tunnels
 for node in $nodes
 do
 
- launch_command="export JVM_ARGS='$SERVER_JVM_ARGS';touch jmeter-server.log;./"$JMETER_VERSION"/bin/jmeter-server -Djava.rmi.server.hostname=$node -p jmeter.properties &> jmeter-server-launch.log &"
+launch_command="export JVM_ARGS='$SERVER_JVM_ARGS';touch jmeter-server.log;./"$JMETER_VERSION"/bin/jmeter-server -Djava.rmi.server.hostname=$node -p jmeter.properties &> jmeter-server-launch.log &"
 
  #echo "Starting $node"
  scp -q $ID_OPT $TEST_FILES $TEST_USER@$node:/home/$TEST_USER

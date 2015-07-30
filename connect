@@ -1,5 +1,6 @@
 #!/bin/bash
-source testenv.sh
+source setup.sh
+
 #Get the test host
 opt1=$1
 remote_command=""
@@ -23,7 +24,7 @@ if [ "$test_host" = "" ] ; then
  exit 0
 fi
 
-test_ip=`cat $TEST_HOME/remotes | grep $test_host$ | awk '{print $1}'`
+test_ip=`cat $CONFIG_PATH/remotes | grep $test_host$ | awk '{print $1}'`
 echo "connecting to $test_host $test_ip"
 
 command=`echo $remote_command | awk '{$1=""; sub(" ", ""); print}'`

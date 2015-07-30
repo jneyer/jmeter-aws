@@ -21,7 +21,7 @@ The t2.micro instances will allow you to run up to 250 threads per node. The jme
 
 4. After making any changes to the remotes file 
 	- Run ./update-properties
-This will update the jmeter.properties and testenv.sh file with the updated worker node addresses.
+This will update the jmeter.properties and settings file with the updated worker node addresses.
 
 5. Copy the .pem key for the AWS instances to the certs directory. Make sure key is chmod 400 for ssh to connect.
 

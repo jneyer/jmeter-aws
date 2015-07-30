@@ -1,5 +1,5 @@
 #!/bin/bash
-source testenv.sh
+source setup.sh
 
 curl -O http://www.trieuvan.com/apache//jmeter/binaries/"$JMETER_VERSION".tgz
 tar zxvf "$JMETER_VERSION".tgz

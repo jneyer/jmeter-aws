@@ -1,6 +1,6 @@
 #!/bin/bash
-source testenv.sh
-nodes=`cat remotes | awk '{print $2}'`
+source setup.sh
+nodes=`cat $CONFIG_PATH/remotes | awk '{print $2}'`
 
 for node in $nodes
 do
