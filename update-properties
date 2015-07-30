@@ -22,3 +22,5 @@ mv settings.new settings; \
 rm jmeter.properties.bak;)
 
 source setup.sh 
+
+echo "Finished."
