@@ -14,6 +14,7 @@
 - Run ./start-gui to launch the default JMeter project.
 
 ##Instructions
+
 1. Run ./setup-local from this directory
 This script downloads JMeter 2.13 and unpacks it in the test directory.
 
