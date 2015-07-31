@@ -13,7 +13,8 @@
 - Run ./start-nodes to open the SSH tunnels and start the nodes for your test.
 - Run ./start-gui to launch the default JMeter project.
 
-##Instructions
+## Instructions
+
 1. Run ./setup-local from this directory
 This script downloads JMeter 2.13 and unpacks it in the test directory.
 
