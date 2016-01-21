@@ -13,6 +13,10 @@
 - Run ./start-nodes to open the SSH tunnels and start the nodes for your test.
 - Run ./start-gui to launch the default JMeter project.
 
+## Optional Environment Overrides
+- CONFIG_PATH - Optional config directory. This is used to manage site specific configuration maintained outside of the jmeter-aws project.
+- DATA_PATH - Directory that contains data files nodes will use for testing. All files in this directory will be copied to the worker nodes.
+
 ## Instructions
 
 1. Run ./setup-local from this directory
