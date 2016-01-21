@@ -14,8 +14,8 @@
 - Run ./start-gui to launch the default JMeter project.
 
 ## Optional Environment Overrides
-- CONFIG_PATH - Optional config directory. This is used to manage site specific configuration maintained outside of the jmeter-aws project.
-- DATA_PATH - Directory that contains data files nodes will use for testing. All files in this directory will be copied to the worker nodes.
+- CONFIG_PATH - Directory of modified config settings. This is used to manage site-specific configuration independent of the jmeter-aws project.
+- DATA_PATH - Directory that contains data files to be used for jmeter tests. All files in this directory will be copied to the worker nodes so they are available locally.
 
 ## Instructions
 
