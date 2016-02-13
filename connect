@@ -1,6 +1,7 @@
 #!/bin/bash
 source setup.sh
 
+
 #Get the test host
 opt1=$1
 remote_command=""
@@ -30,8 +31,8 @@ echo "connecting to $test_host $test_ip"
 command=`echo $remote_command | awk '{$1=""; sub(" ", ""); print}'`
 
 if [ "$remote_command" = "$test_host" ] ; then
- ssh -q $ID_OPT $TEST_USER@$test_ip
+ ssh -o StrictHostKeyChecking=no -q $ID_OPT $TEST_USER@$test_ip
 else
- ssh $ID_OPT $TEST_USER@$test_ip $command
+ ssh -o StrictHostKeyChecking=no $ID_OPT $TEST_USER@$test_ip $command
 fi
  
