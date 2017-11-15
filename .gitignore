@@ -4,3 +4,6 @@ jmeter.log
 results/
 *.hprof
 .ssh_worker_pids
+apache-jmeter-*
+data2
+realtimearrivals.*.*

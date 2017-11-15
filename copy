@@ -1,0 +1,26 @@
+#!/bin/bash
+source setup.sh
+
+file=$1
+target=$2
+host=$3
+
+OPTIND=1
+while getopts "h?:" opt; do
+	case "$opt" in
+		h|\?)
+		echo "Usage: copy <file> <target> <hostname>"
+		exit 0
+		;;
+    esac
+done
+
+if [ "$host" = "" ] ; then
+ echo "Please specify a filename and host"
+ echo "Usage: copy <file> <target> <hostname>"
+ exit 0
+fi
+
+test_ip=`cat $CONFIG_PATH/remotes | grep $host$ | awk '{print $1}'`
+scp -o StrictHostKeyChecking=no $ID_OPT $file $TEST_USER@$test_ip:/home/$TEST_USER/$target
+ 

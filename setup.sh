@@ -2,7 +2,7 @@
 
 if [ "$TESTENV" = "" ]; then
  export TEST_HOME=$PWD
- export JMETER_VERSION=apache-jmeter-2.13
+ export JMETER_VERSION=apache-jmeter-3.3
  export JMETER_HOME=$TEST_HOME/$JMETER_VERSION
  export PATH=$PATH:$TEST_HOME:$JMETER_HOME/bin
 
