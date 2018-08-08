@@ -1,9 +1,9 @@
-apache-jmeter-2.13
-certs
+apache-jmeter-*
 jmeter.log
-results/
+output
 *.hprof
 .ssh_worker_pids
-apache-jmeter-*
-data2
+certs
+data*
+results*
 realtimearrivals.*.*
